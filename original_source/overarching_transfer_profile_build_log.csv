@@ -1,0 +1,7 @@
+"n_steps","terminal","q","h","correction_profile","action","runtime_seconds"
+1000000,50,0.0723823994089045,0.05,"overarching_profiles/finite_window_profile_n1000000_T50.csv","generated",230.06
+2500000,25,0.0678803566867709,0.01581,"overarching_profiles/finite_window_profile_n2500000_T25.csv","generated",230.69
+4000000,50,0.0657816595213214,0.025,"overarching_profiles/finite_window_profile_n4000000_T50.csv","generated",230.12
+5000000,50,0.0648300360078234,0.02236,"overarching_profiles/finite_window_profile_n5000000_T50.csv","generated",221.36
+10000000,50,0.0620420677969958,0.01581,"finite_window_correction_numerical_profiles.csv","validated_existing",0
+10000000,100,0.0620420677969958,0.03162,"overarching_profiles/finite_window_profile_n10000000_T100.csv","generated",221.38
