@@ -1,0 +1,7 @@
+"n_steps","terminal","q","h","correction_profile","map_monotone","maximum_fixed_point_error","maximum_independent_z_difference","maximum_128_to_256_difference","small_tau_transfer_distance_from_one","status"
+1000000,50,0.0723823994089045,0.05,"overarching_profiles/finite_window_profile_n1000000_T50.csv",TRUE,0,0.266419296241008,0.00563882332252696,0.026009211483609,"pass"
+2500000,25,0.0678803566867709,0.01581,"overarching_profiles/finite_window_profile_n2500000_T25.csv",TRUE,0,0.0652198717698424,0.00571378097515896,0.0178104895096221,"pass"
+4000000,50,0.0657816595213214,0.025,"overarching_profiles/finite_window_profile_n4000000_T50.csv",TRUE,0,0.100480747738817,0.00569380832081201,0.019978042665324,"pass"
+5000000,50,0.0648300360078234,0.02236,"overarching_profiles/finite_window_profile_n5000000_T50.csv",TRUE,0,0.0888630940301569,0.00569960010263404,0.0193446195992859,"pass"
+10000000,50,0.0620420677969958,0.01581,"finite_window_correction_numerical_profiles.csv",TRUE,0,0.0655154182269671,0.00571391780339903,0.017779999195395,"pass"
+10000000,100,0.0620420677969958,0.03162,"overarching_profiles/finite_window_profile_n10000000_T100.csv",TRUE,0,0.146885238383322,0.00567947338998809,0.0215185557481659,"pass"
