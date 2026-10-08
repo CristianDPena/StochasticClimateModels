@@ -12,7 +12,7 @@ alpha, sigma2, beta = sigma1 * rho, rho, sigma1 = beta / rho
 
 The `Legacy Code/` folder and
 `original_source/external_legacy/RhoSigma1Sigma2Alpha_EstimationVFinal.R`
-are historical experiments, not part of the frozen estimator.
+are historical experiments, not part of the estimator.
 
 ## Quick Start
 
@@ -32,9 +32,7 @@ All finite-window correction implementation tests passed.
 ```
 
 For a full frozen simulation path, work from `original_source/` and follow
-the exact command in `HOW_TO_RUN.md`. A production-resolution path uses
-`n = 10,000,000`, is computationally expensive, and should not be mistaken
-for a smoke test.
+the exact command in `HOW_TO_RUN.md`. 
 
 ## Required Numerical Objects
 
@@ -51,10 +49,6 @@ main production cell (`n = 10,000,000`, `T = 50`) uses:
 original_source/finite_window_correction_numerical_profiles.csv
 ```
 
-Additional profiles in `original_source/overarching_profiles/` support only
-the five other frozen `(n, T)` validation designs. Do not use a profile for a
-different observation design or extrapolate the correction map.
-
 ## What Production Does and Does Not Use
 
 Production estimation uses observed residual increments, `dt`, and estimated
@@ -68,10 +62,8 @@ upstream parameters. In particular:
   numerical approximations to model expectations, not oracle information.
 
 The validation runners contain truth values because they simulate and score
-paths. Under the frozen production setting `--tail-input=estimated`, truth is
-used only after estimation for error reporting. Selectable oracle-tail modes
-exist for diagnostics but are not used by the frozen controller.
-
+paths. Under the current production setting `--tail-input=estimated`, truth is
+used only after estimation for error reporting. 
 ## Validated Scope and Main Result
 
 The frozen validation comprises 254 retained simulated paths across 12
