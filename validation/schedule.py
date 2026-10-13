@@ -17,7 +17,7 @@ def main():
     try: lock.mkdir()
     except FileExistsError: ap.error(f'An existing scheduler lock needs inspection: {lock}')
     (lock/'pid').write_text(str(os.getpid()))
-    start=time.monotonic();deadline=start+args.hours*3600;running={};log=[]
+    start=time.monotonic();deadline=start+args.hours*3600;running={};log=[];prep=None
     env=dict(os.environ,OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',VECLIB_MAXIMUM_THREADS='1')
     cmd=['Rscript','validation/run.R',f'--out={out}']
     def stop(p):
@@ -60,7 +60,9 @@ def main():
             del running[p]
         # Summary generation uses a reserved part of the <12h budget.
         subprocess.run(cmd+['--command=summarize'],check=True,env=env,timeout=900)
+        subprocess.run(['Rscript','validation/figures.R',f'--out={out}'],check=True,env=env,timeout=900)
     finally:
+        if prep is not None:stop(prep)
         for p,(_,handle,_) in running.items():stop(p);handle.close();clean_owned(p.pid)
         (out/'logs').mkdir(exist_ok=True)
         stamp=time.strftime('%Y%m%dT%H%M%S',time.gmtime())

@@ -1,0 +1,16 @@
+{
+  "batch": "recovery1",
+  "elapsed": 296.151180667046,
+  "jobs": [
+    {
+      "job": "v0001",
+      "returncode": 0,
+      "seconds": 294.32599829201354
+    },
+    {
+      "job": "v0010",
+      "returncode": 0,
+      "seconds": 294.324674708012
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+"job_id","regime","replication","trajectory_id","seed_v","seed_l","alpha","sigma2","sigma1","rho","T","n","dt","component","batch","variant","kernel","transfer","sim_level","status","error","finite_complete","joint_success"
+"v0001","B",1,"B_001",101001,201001,1.3,1,1,1.5,50,10000000,5e-06,"main","recovery1","ordinary","standard","standard",4,"success","",TRUE,TRUE
+"v0010","B",2,"B_002",101002,201002,1.3,1,1,1.5,50,10000000,5e-06,"main","recovery1","ordinary","standard","standard",4,"success","",TRUE,TRUE

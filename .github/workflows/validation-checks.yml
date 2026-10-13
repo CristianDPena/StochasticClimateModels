@@ -16,5 +16,6 @@ jobs:
       - run: Rscript validation/setup.R
       - run: Rscript validation/tests/test_validation.R
       - run: python3 -m py_compile validation/schedule.py
+      - run: python3 validation/tests/test_scheduler.py
       - run: Rscript validation/run.R --command=init --out=validation/results/ci
 # Full simulations are deliberately not dispatched to Actions or billed cloud runners.

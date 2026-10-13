@@ -49,12 +49,18 @@ a separately declared extension, not opportunistic retuning.
 
 ## Expected resources and limitations
 
-At the earlier 1,403-second benchmark runtime, 42 fits take about 8.2 hours with
-two workers. Each information batch should take roughly 7 hours, assuming cost
-scales mainly with T/block count; this is provisional, not a Mac performance
-measurement. Expect roughly 45–60 hours for the entire study in separate sessions,
-plus cache construction and diagnostic work. Thermal throttling may increase it.
-No credible complete 12-hour study is claimed.
+Two full-resolution baseline fits were run concurrently on this MacBook Air.
+The fixed estimator took 278.9 and 286.7 seconds; the complete two-job session took
+296.2 seconds. A mid-run resident-memory snapshot was about 1.4 GB per worker.
+These are short-run calibration measurements, not peak-memory guarantees or
+measurements of all regimes and refinement settings.
+
+At that throughput a recovery batch projects to about 1.7 hours, and an information
+batch to about 1.4 hours if cost scales with horizon. Budget 2–4 hours per such
+session for regime variation, generation, and sustained thermal load. Diagnostics
+also include new cache construction and are less predictable. A rough full-study
+projection is 10–16 hours over the seven sessions, not a guaranteed complete
+12-hour study. The scheduler's bounded sessions remain the reliable constraint.
 
 The scheduler runs at most two R processes, limits numerical-library threads,
 and stops after a default 10.5-hour budget (including cache preparation). It does
@@ -62,7 +68,7 @@ not launch a new fit in the final 45 minutes and interrupts unfinished work at t
 deadline. Completed clock-profile rows are checkpointed. Repeat the SAME batch
 command to resume; completed job IDs are never rerun. The seven named batches
 are scientifically non-overlapping but a slow batch may require another session.
-Summary generation has a separate 15-minute ceiling. A time-bounded session does
+Summary generation and final figure rendering each have a separate 15-minute ceiling. A time-bounded session does
 not guarantee that every planned fit in the batch finishes.
 
 Raw storage is approximately 16 GB of residual doubles, plus small additional
@@ -98,6 +104,7 @@ python3 validation/schedule.py --batch=information1
 python3 validation/schedule.py --batch=information2
 python3 validation/schedule.py --batch=diagnostics
 Rscript validation/run.R --command=summarize
+Rscript validation/figures.R
 ```
 
 Use `--out=/path/on/local/disk` on every command to avoid intensive cloud-sync I/O.
