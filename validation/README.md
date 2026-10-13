@@ -63,7 +63,11 @@ projection is 10–16 hours over the seven sessions, not a guaranteed complete
 12-hour study. The scheduler's bounded sessions remain the reliable constraint.
 
 The scheduler runs at most two R processes, limits numerical-library threads,
-and stops after a default 10.5-hour budget (including cache preparation). It does
+and stops after a default 10.5-hour calendar-time budget (including cache preparation
+and system sleep). On macOS, keep the lid open and consider `caffeinate -i` while
+running the study; a suspended computer cannot execute the deadline handler until
+it wakes. Elapsed fit times can include suspension and should not be interpreted
+as CPU cost. It does
 not launch a new fit in the final 45 minutes and interrupts unfinished work at the
 deadline. Completed clock-profile rows are checkpointed. Repeat the SAME batch
 command to resume; completed job IDs are never rerun. The seven named batches

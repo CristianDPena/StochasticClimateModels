@@ -17,7 +17,8 @@ def main():
     try: lock.mkdir()
     except FileExistsError: ap.error(f'An existing scheduler lock needs inspection: {lock}')
     (lock/'pid').write_text(str(os.getpid()))
-    start=time.monotonic();deadline=start+args.hours*3600;running={};log=[];prep=None
+    # Calendar time includes macOS sleep; monotonic time can exclude suspended time.
+    start=time.time();deadline=start+args.hours*3600;running={};log=[];prep=None
     env=dict(os.environ,OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',VECLIB_MAXIMUM_THREADS='1')
     cmd=['Rscript','validation/run.R',f'--out={out}']
     def stop(p):
@@ -29,10 +30,10 @@ def main():
         for d in (out/'locks').glob('*.lock'):
             if (d/'pid').exists() and (d/'pid').read_text().strip()==str(pid):shutil.rmtree(d)
     try:
-        subprocess.run(cmd+['--command=init'],check=True,env=env,timeout=max(1,deadline-time.monotonic()))
+        subprocess.run(cmd+['--command=init'],check=True,env=env,timeout=max(1,deadline-time.time()))
         prep_log=open(out/'logs'/f'{args.batch}_prepare.log','a')
         prep=subprocess.Popen(cmd+['--command=prepare',f'--batch={args.batch}'],stdout=prep_log,stderr=subprocess.STDOUT,env=env)
-        try:code=prep.wait(timeout=max(1,deadline-time.monotonic()))
+        try:code=prep.wait(timeout=max(1,deadline-time.time()))
         except subprocess.TimeoutExpired:stop(prep);return
         finally:prep_log.close()
         if code:raise RuntimeError('Cache preparation failed; inspect preparation log')
@@ -40,23 +41,23 @@ def main():
         rows=[r for r in rows if not (out/'results'/f"{r['job_id']}.rds").exists()]
         if args.max_jobs:rows=rows[:args.max_jobs]
         for row in rows:
-            while len(running)>=args.workers and time.monotonic()<deadline:
+            while len(running)>=args.workers and time.time()<deadline:
                 for p,(r,handle,t0) in list(running.items()):
                     if p.poll() is not None:
                         handle.close();clean_owned(p.pid)
-                        log.append(dict(job=r['job_id'],returncode=p.returncode,seconds=time.monotonic()-t0))
+                        log.append(dict(job=r['job_id'],returncode=p.returncode,seconds=time.time()-t0))
                         del running[p]
                 if len(running)>=args.workers:time.sleep(1)
             # Avoid starting a fresh costly fit with less than 45 minutes remaining.
-            if time.monotonic()+2700>=deadline:break
+            if time.time()+2700>=deadline:break
             handle=open(out/'logs'/f"{row['job_id']}.log",'a')
             p=subprocess.Popen(cmd+['--command=run',f"--job={row['job_id']}"],stdout=handle,stderr=subprocess.STDOUT,env=env)
-            running[p]=(row,handle,time.monotonic())
+            running[p]=(row,handle,time.time())
         for p,(row,handle,t0) in list(running.items()):
-            try:p.wait(timeout=max(1,deadline-time.monotonic()))
+            try:p.wait(timeout=max(1,deadline-time.time()))
             except subprocess.TimeoutExpired:stop(p)
             handle.close();clean_owned(p.pid)
-            log.append(dict(job=row['job_id'],returncode=p.returncode,seconds=time.monotonic()-t0))
+            log.append(dict(job=row['job_id'],returncode=p.returncode,seconds=time.time()-t0))
             del running[p]
         # Summary generation uses a reserved part of the <12h budget.
         subprocess.run(cmd+['--command=summarize'],check=True,env=env,timeout=900)
@@ -66,7 +67,7 @@ def main():
         for p,(_,handle,_) in running.items():stop(p);handle.close();clean_owned(p.pid)
         (out/'logs').mkdir(exist_ok=True)
         stamp=time.strftime('%Y%m%dT%H%M%S',time.gmtime())
-        (out/'logs'/f'{args.batch}_{stamp}_scheduler.json').write_text(json.dumps(dict(batch=args.batch,elapsed=time.monotonic()-start,jobs=log),indent=2))
+        (out/'logs'/f'{args.batch}_{stamp}_scheduler.json').write_text(json.dumps(dict(batch=args.batch,elapsed=time.time()-start,jobs=log),indent=2))
         shutil.rmtree(lock)
 
 if __name__=='__main__':main()
