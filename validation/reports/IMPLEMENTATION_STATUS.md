@@ -1,3 +1,6 @@
+> Historical implementation/calibration status. The full study is now complete;
+> see [completed results](completed-study/README.md) for the final evidence.
+
 # Validation package status
 
 The repository contains the complete reduced study design and execution/reporting

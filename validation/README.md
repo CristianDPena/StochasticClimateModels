@@ -1,5 +1,10 @@
 # Fixed-method validation on a 16 GB MacBook Air
 
+**Completed study:** [results and interpretation](reports/completed-study/README.md)
+cover all 256 planned evaluations. Regenerate the compact report with
+`python3 validation/export_results.py`; this also audits the retained raw run.
+
+
 This package evaluates the existing estimator; it does not redesign or tune it.
 The authoritative implementation is `original_source/`, pinned to upstream commit
 `e6eb6da6d4db1325c9ca086dd5df2e09abceb915`. Every estimator source and production

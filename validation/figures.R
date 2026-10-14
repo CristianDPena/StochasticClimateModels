@@ -56,6 +56,29 @@ if(!any(x$component%in%c('infill','horizon'))) {
  plot.new();text(.5,.6,'Information-growth results are pending',cex=1.2)
  text(.5,.4,'Reference fits alone do not assess improvement with n or T.',cex=.9);dev.off()
 }
+if(any(x$component%in%c('infill','horizon'))) {
+ gm<-read.csv(file.path(out,'summary','information_growth.csv'))
+ pdf(file.path(out,'figures','information_growth.pdf'),width=10,height=11,useDingbats=FALSE)
+ par(mfrow=c(4,2),mar=c(4,4.5,2,1),oma=c(1,0,2,0),mgp=c(2.8,1,0))
+ for(i in seq_along(parameters))for(comp in c('infill','horizon')) {
+  y<-gm[gm$parameter==parameters[i]&gm$component%in%c('main',comp),]
+  axisvar<-if(comp=='infill')'n' else 'T';scale<-if(comp=='infill')1e6 else 1
+  upper<-max(y$rmse+1.96*ifelse(is.finite(y$rmse_mcse),y$rmse_mcse,0),na.rm=TRUE)
+  xx<-range(y[[axisvar]]/scale);pad<-diff(xx)*.08
+  plot(xx+c(-pad,pad),c(0,upper*1.22),type='n',xaxt='n',ylab='RMSE',main=titles[i],
+   xlab=if(comp=='infill')expression(n~'(millions), '~T==50) else expression(T~', spacing = '~5%*%10^{-6}))
+  axis(1,at=sort(unique(y[[axisvar]]/scale)))
+  for(g in c('B','H')) {
+   z<-y[y$regime==g,];z<-z[order(z[[axisvar]]),];xx<-z[[axisvar]]/scale;color<-colors[match(g,c('B','H'))]
+   lines(xx,z$rmse,type='b',pch=16,col=color)
+   good<-is.finite(z$rmse_mcse)
+   arrows(xx[good],pmax(0,z$rmse[good]-1.96*z$rmse_mcse[good]),xx[good],z$rmse[good]+1.96*z$rmse_mcse[good],angle=90,code=3,length=.03,col=color)
+   text(xx,z$rmse,labels=paste0(z$finite,'/',z$N),pos=if(g=='B')4 else 2,cex=.65,col=color,offset=.5)
+  }
+ }
+ mtext('B: blue; H: orange. Counts: finite / scheduled. Bars: RMSE +/- 1.96 Monte Carlo SE.',outer=TRUE,side=3,line=.5,cex=.85)
+ dev.off()
+}
 writeLines(c('Generated figures from saved estimates; finite/total counts appear below groups.',
  'Recovery uses signed alpha error and relative signed scale/clock errors.',
  'Benchmark alpha values outside the stable domain remain visible; undefined scale estimates are counted.',
