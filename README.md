@@ -96,3 +96,16 @@ than an unrestricted guarantee that every four-parameter estimate is within
 - The frozen source hashes, numerical caches, profiles, and design CSVs are
   the reproducibility authority. One PowerShell controller amendment affects
   logging and process auditing only; the statistical source remains frozen.
+
+## New reproducible validation study
+
+The separate [`validation/`](validation/README.md) framework evaluates the frozen
+method on paired simulated datasets with tail benchmarks, oracle diagnostics,
+source checks, raw-result retention, vector figures and automatically generated
+reports. Its revised design targets a 16 GB MacBook Air with two workers in bounded,
+resumable sessions. It does not alter `original_source/` or replace the historical
+254-path findings above with uncompleted experiments.
+
+Start with the [run instructions](validation/README.md) and
+[benchmark assumptions](validation/BENCHMARKS.md). Completion and pending jobs are
+always reported explicitly; smoke tests are not scientific evidence.

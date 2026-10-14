@@ -1,0 +1,206 @@
+{
+  "batch": "diagnostics",
+  "elapsed": 23572.601879119873,
+  "jobs": [
+    {
+      "job": "v0005",
+      "returncode": 0,
+      "seconds": 4.040850877761841
+    },
+    {
+      "job": "v0004",
+      "returncode": 0,
+      "seconds": 4584.302777051926
+    },
+    {
+      "job": "v0006",
+      "returncode": 0,
+      "seconds": 4596.392812013626
+    },
+    {
+      "job": "v0008",
+      "returncode": 0,
+      "seconds": 6.05888295173645
+    },
+    {
+      "job": "v0009",
+      "returncode": 0,
+      "seconds": 6.060118913650513
+    },
+    {
+      "job": "v0007",
+      "returncode": 0,
+      "seconds": 3983.8956401348114
+    },
+    {
+      "job": "v0014",
+      "returncode": 0,
+      "seconds": 5.051332712173462
+    },
+    {
+      "job": "v0013",
+      "returncode": 0,
+      "seconds": 3982.90992975235
+    },
+    {
+      "job": "v0015",
+      "returncode": 0,
+      "seconds": 3183.291960000992
+    },
+    {
+      "job": "v0017",
+      "returncode": 0,
+      "seconds": 6.042266130447388
+    },
+    {
+      "job": "v0016",
+      "returncode": 0,
+      "seconds": 3169.1410779953003
+    },
+    {
+      "job": "v0018",
+      "returncode": 0,
+      "seconds": 6.062342166900635
+    },
+    {
+      "job": "v0023",
+      "returncode": 0,
+      "seconds": 4.037764072418213
+    },
+    {
+      "job": "v0022",
+      "returncode": 0,
+      "seconds": 2208.0091688632965
+    },
+    {
+      "job": "v0028",
+      "returncode": 0,
+      "seconds": 4.03550910949707
+    },
+    {
+      "job": "v0027",
+      "returncode": 0,
+      "seconds": 2217.089149951935
+    },
+    {
+      "job": "v0115",
+      "returncode": 0,
+      "seconds": 4.033787965774536
+    },
+    {
+      "job": "v0114",
+      "returncode": 0,
+      "seconds": 2314.1414868831635
+    },
+    {
+      "job": "v0118",
+      "returncode": 0,
+      "seconds": 4.040570974349976
+    },
+    {
+      "job": "v0117",
+      "returncode": 0,
+      "seconds": 2305.0639452934265
+    },
+    {
+      "job": "v0121",
+      "returncode": 0,
+      "seconds": 4.040673732757568
+    },
+    {
+      "job": "v0120",
+      "returncode": 0,
+      "seconds": 3685.0903861522675
+    },
+    {
+      "job": "v0124",
+      "returncode": 0,
+      "seconds": 4.039899110794067
+    },
+    {
+      "job": "v0123",
+      "returncode": 0,
+      "seconds": 3688.1226058006287
+    },
+    {
+      "job": "v0197",
+      "returncode": 0,
+      "seconds": 5.050757169723511
+    },
+    {
+      "job": "v0196",
+      "returncode": 0,
+      "seconds": 2535.9527399539948
+    },
+    {
+      "job": "v0198",
+      "returncode": 0,
+      "seconds": 2535.885199069977
+    },
+    {
+      "job": "v0200",
+      "returncode": 0,
+      "seconds": 4.0205910205841064
+    },
+    {
+      "job": "v0201",
+      "returncode": 0,
+      "seconds": 4.018992185592651
+    },
+    {
+      "job": "v0199",
+      "returncode": 0,
+      "seconds": 283.69772386550903
+    },
+    {
+      "job": "v0206",
+      "returncode": 0,
+      "seconds": 3.018666982650757
+    },
+    {
+      "job": "v0205",
+      "returncode": 0,
+      "seconds": 292.83530592918396
+    },
+    {
+      "job": "v0207",
+      "returncode": 0,
+      "seconds": 296.4581210613251
+    },
+    {
+      "job": "v0209",
+      "returncode": 0,
+      "seconds": 4.028343200683594
+    },
+    {
+      "job": "v0210",
+      "returncode": 0,
+      "seconds": 4.04055380821228
+    },
+    {
+      "job": "v0208",
+      "returncode": 0,
+      "seconds": 294.46971821784973
+    },
+    {
+      "job": "v0215",
+      "returncode": 0,
+      "seconds": 3.0305097103118896
+    },
+    {
+      "job": "v0214",
+      "returncode": 0,
+      "seconds": 289.6806778907776
+    },
+    {
+      "job": "v0219",
+      "returncode": 0,
+      "seconds": 291.68463706970215
+    },
+    {
+      "job": "v0220",
+      "returncode": 0,
+      "seconds": 21.19178295135498
+    }
+  ]
+}

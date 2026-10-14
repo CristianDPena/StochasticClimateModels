@@ -1,0 +1,10 @@
+"component","regime","T","n","variant","kernel","transfer","sim_level","method","parameter","N","paired_finite","mean_AE_difference","mcse","bootstrap_low","bootstrap_high"
+"main","B",50,10000000,"ordinary","standard","standard",4,"fixed","alpha",2,2,0,0,0,0
+"main","B",50,10000000,"ordinary","standard","standard",4,"fixed","beta",2,2,0,0,0,0
+"main","B",50,10000000,"ordinary","standard","standard",4,"fixed","rho",2,2,0,0,0,0
+"main","B",50,10000000,"ordinary","standard","standard",4,"fixed","sigma1",2,2,0,0,0,0
+"main","B",50,10000000,"ordinary","standard","standard",4,"fixed","sigma2",2,2,0,0,0,0
+"main","B",50,10000000,"ordinary","standard","standard",4,"gpd_ml_99","alpha",2,2,1.52264126126378,0.333396196036944,1.18924506522683,1.85603745730072
+"main","B",50,10000000,"ordinary","standard","standard",4,"gpd_ml_99","sigma2",2,0,NA,NA,NA,NA
+"main","B",50,10000000,"ordinary","standard","standard",4,"hill_sqrt","alpha",2,2,0.525218433723484,0.245712693868867,0.279505739854617,0.770931127592351
+"main","B",50,10000000,"ordinary","standard","standard",4,"hill_sqrt","sigma2",2,1,0.194494434144192,NA,NA,NA

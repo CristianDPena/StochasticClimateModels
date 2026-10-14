@@ -1,0 +1,126 @@
+{
+  "batch": "information2",
+  "elapsed": 12464.727088212967,
+  "jobs": [
+    {
+      "job": "v0036",
+      "returncode": 0,
+      "seconds": 277.58331298828125
+    },
+    {
+      "job": "v0039",
+      "returncode": 0,
+      "seconds": 298.4015669822693
+    },
+    {
+      "job": "v0037",
+      "returncode": 0,
+      "seconds": 594.0796871185303
+    },
+    {
+      "job": "v0042",
+      "returncode": 0,
+      "seconds": 338.57035183906555
+    },
+    {
+      "job": "v0040",
+      "returncode": 0,
+      "seconds": 689.2649211883545
+    },
+    {
+      "job": "v0045",
+      "returncode": 0,
+      "seconds": 342.6612389087677
+    },
+    {
+      "job": "v0043",
+      "returncode": 0,
+      "seconds": 680.2882189750671
+    },
+    {
+      "job": "v0048",
+      "returncode": 0,
+      "seconds": 331.727117061615
+    },
+    {
+      "job": "v0046",
+      "returncode": 0,
+      "seconds": 693.5258266925812
+    },
+    {
+      "job": "v0049",
+      "returncode": 0,
+      "seconds": 715.4549951553345
+    },
+    {
+      "job": "v0051",
+      "returncode": 0,
+      "seconds": 358.68280577659607
+    },
+    {
+      "job": "v0228",
+      "returncode": 0,
+      "seconds": 339.59278321266174
+    },
+    {
+      "job": "v0052",
+      "returncode": 0,
+      "seconds": 686.232519865036
+    },
+    {
+      "job": "v0229",
+      "returncode": 0,
+      "seconds": 672.2002918720245
+    },
+    {
+      "job": "v0231",
+      "returncode": 0,
+      "seconds": 331.59452176094055
+    },
+    {
+      "job": "v0234",
+      "returncode": 0,
+      "seconds": 528.4114081859589
+    },
+    {
+      "job": "v0232",
+      "returncode": 0,
+      "seconds": 1098.9978339672089
+    },
+    {
+      "job": "v0237",
+      "returncode": 0,
+      "seconds": 469.2080788612366
+    },
+    {
+      "job": "v0235",
+      "returncode": 0,
+      "seconds": 1040.7979912757874
+    },
+    {
+      "job": "v0240",
+      "returncode": 0,
+      "seconds": 498.4069609642029
+    },
+    {
+      "job": "v0238",
+      "returncode": 0,
+      "seconds": 711.4121677875519
+    },
+    {
+      "job": "v0243",
+      "returncode": 0,
+      "seconds": 457.5564079284668
+    },
+    {
+      "job": "v0241",
+      "returncode": 0,
+      "seconds": 4024.7327330112457
+    },
+    {
+      "job": "v0244",
+      "returncode": 0,
+      "seconds": 6052.4192271232605
+    }
+  ]
+}

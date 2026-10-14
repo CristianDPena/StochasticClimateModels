@@ -1,0 +1,9 @@
+validation/.library/
+validation/results/
+validation/src/*.o
+validation/src/*.so
+validation/src/*.dll
+.Rhistory
+.RData
+__pycache__/
+*.pyc

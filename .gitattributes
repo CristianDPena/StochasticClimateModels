@@ -1,0 +1,4 @@
+# Frozen integrity checks must see the exact original committed byte streams.
+original_source/** -text
+validation/** text eol=lf
+validation/**/*.pdf -text
